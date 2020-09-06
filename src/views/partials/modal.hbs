@@ -1,0 +1,103 @@
+<!-- Modal -->
+<div class="modal fade" id="modalFormPass" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center text-white bg-primary" id="modalHeadPass">
+        <h2 class="modal-title">Nuevo Departamento</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tile">
+          <div class="tile-body">
+            <form action="/pass" method="POST" id="formPass" name="formPass">
+              <div class="form-group">
+                <input type="password" name="password" placeholder="Clave Actual" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="password" name="password1" placeholder="Ingrese Nueva Clave" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="password" name="password2" placeholder="Confirmar Clave" class="form-control">
+              </div>
+              <button class="btn btn-success btn-block" type="submit"><i class="far fa-save"></i></i>
+                Actualizar
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal fin -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalFormWait" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center text-white bg-primary" id="modalHeadWait" style="height:4%;!important">
+        <h5 class="modal-title">Procesando . . .</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tile-body">
+          <div class="progress mb-2">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar"
+              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+          </div>
+          <!--div style="float: left;"><i class="fas fa-cog fa-3x fa-spin"></i></div>
+          <div style="float: left ;"><h3> Creando Catalogo</h3></div-->
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal fin -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalFormReg" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center text-white bg-primary" id="modalHeadReg">
+        <h2 class="modal-title">Nuevo Departamento</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tile">
+          <div class="tile-body">
+            <form action="/signup" method="POST" id="formReg" name="formReg">
+              <div class="form-group">
+
+                <input type="type" name="fullname" placeholder="Nombre completo" class="form-control" autofocus>
+              </div>
+              <div class="form-group">
+                <input type="text" name="username" placeholder="Usuario" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" placeholder="Clave" class="form-control">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success btn-block"><i class="far fa-save"></i>
+                  Guardar
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal fin -->

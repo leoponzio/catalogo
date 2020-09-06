@@ -1,0 +1,158 @@
+<!-- Modal -->
+<div class="modal fade" id="modalFormProd" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center text-white" id="modalHeadProd">
+        <h2 class="modal-title">Nuevo Departamento</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tile">
+
+          <div class="tile-body">
+            <form enctype="multipart/form-data" action="/productos/setProd" id="formProd" name="formProd" method="POST">
+                <input type="hidden" id="idProd" name="idProd" value="">
+                <div class="row">
+                  <div class="form-group">
+                    <label for="" class="col-form-label">Codigo</label>
+                    <input type="text" id="cod" name="cod" class="form-control" placeholder="Codigo" required autofocus>
+                 </div>
+               
+                </div>
+                <div class="row border border-primary rounded">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Departamento</label>
+                    <select class="form-control selectpicker" name="dpto" data-live-search="true" id="cdpto">
+                      {{#each dptos}}
+                      <option value="{{dp_cod}}">{{dp_des}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control selectpicker" name="activo" id="activo">
+                      <option value="1">Disponible</option>
+                      <option value="2">No Disponible</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Descripcion</label>
+                <input type="text" id="des" name="des" class="form-control" placeholder="Descripcion" required>
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Detalle</label>
+                <textarea id="det" name="det" rows="2" class="form-control" placeholder="Detalle"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="" class="col-form-label">Precio $ 💵</label>
+                    <input type="number" step="0.01" id="preciod1" name="preciod1" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="" class="col-form-label">Precio $ 💵 (100 CAJAS)</label>
+                    <input type="number" step="0.01" id="preciod2" name="preciod2" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="" class="col-form-label">Precio ¥ 💴</label>
+                    <input type="number" step="0.01" id="precioy1" name="precioy1" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="" class="col-form-label">Precio ¥ 💴 (100 CAJAS)</label>
+                    <input type="number" step="0.01" id="precioy2" name="precioy2" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="foto">Foto</label>
+                <div class="prevPhoto">
+                  <span class="delPhoto notBlock">X</span>
+                  <label for="ifoto"></label>
+                  
+                </div>
+                <div class="upimg">
+                  
+                  <input type="hidden" name="imgName" id="imgName">
+                  <input type="file" name="ifoto" id="ifoto">
+                </div>
+                <div id="form_alert"></div>
+              </div>
+              <div class="form-group">
+                
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success btn-block" type="submit"><i class="far fa-save"></i><span id="btnText">
+                    Guardar</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal fin -->
+
+<div class="app-title">
+  <div>
+    <h1><i class="fas fas fa-th fa-lg"></i>
+      <button class="btn btn-primary" id="addProd" type="button"><i class="fa fa-plus-circle"></i>
+        Nuevo</button>
+    </h1>
+
+  </div>
+  <ul class="app-breadcrumb breadcrumb">
+    <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+    <li class="breadcrumb-item"><a href="/productos">Productos</a></li>
+  </ul>
+</div>
+<div class="container p-4">
+  <div class="col-md-12">
+    <div class="tile">
+      <div class="tile-body">
+        <div class="table-responsive">
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered" id="tableProd">
+              <thead>
+                <tr>
+                  <th>Codigo</th>
+                  <th>Descripcion</th>
+                  <th>Detalle</th>
+                  <th>Precio $</th>
+                  <th>Precio $</th>
+                  <th>Precio Y</th>
+                  <th>Precio Y</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+              <tfooter>
+
+              </tfooter>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

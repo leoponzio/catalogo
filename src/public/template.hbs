@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+   <!-- <meta name="description" content="Catalogo online">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="autor" content="leoponzio">
+    <meta name="theme-color" content="#009688">-->
+    <title>Catalogo</title>
+    {{!-- GOOGLE FONTS --}}
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    {{!-- BOOTSTRAP 4 --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+    {{!-- FONT AWESOME 5 --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    {{!-- STYLES --}}
+    <link rel="stylesheet" href="{{info.path}}/css/main.css">
+    <link rel="stylesheet" href="{{info.path}}/css/styles.css">
+    {{!-- DATA TABLES --}}
+</head>
+
+<body>
+<div style=" margin: 0; width: 216mm; height: 279mm; padding:0px">
+  
+        {{#each info.prod}}
+
+            <div class="border border-primary rounded-right" style="margin-top:12px; height:122px; width:44%; float: left; {{#if xx}}  margin-left:20px; {{else}} margin-left:0px; {{/if}}">
+                <div class="media">
+                    <img class="media-left" src="{{img}}" alt="{{detalle}}" width="100" height="118">
+                    <div class="media-body">
+
+                        <p class="card-title text-info" style=" margin-bottom: 0px; font-size:15px;">{{des}}</p>
+                        <p class="card-text text-danger" style=" margin-bottom: 0px; font-size:10px;">{{detalle}}</p>
+                           
+                        <div class="bg-grd" style="margin-left: 10px width: 95%;">
+                            <div class="col clearfix">
+                                <p class="card-text float-left font-weight-bold  precio">Precio $ 💵:</p>
+                                <p class="card-text float-right font-weight-bold  precio">{{preciod1}}</p>
+                            </div>
+                            <div class="col clearfix">
+                                <p class="card-text float-left font-weight-bold precio">Precio $ 💵 (100 CAJAS) :</p>
+                                <p class="card-text float-right font-weight-bold  precio">{{preciod2}}</p>
+                            </div>
+                            <div class="col clearfix">
+                                <p class="card-text float-left font-weight-bold precio">Precio ¥ 💴 : </p>
+                                <p class="card-text float-right font-weight-bold  precio">{{precioy1}} </p>
+                            </div>
+                            <div class="col clearfix">
+                                <p class="card-text float-left font-weight-bold precio">Precio ¥ 💴 (100 CAJAS) :</p>
+                                <p class="card-text float-right font-weight-bold  precio">{{precioy2}} </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        {{/each}}
+        
+    </div>
+</body>
+
+</html>

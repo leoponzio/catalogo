@@ -1,0 +1,159 @@
+body {
+    /*background: #fff;*/
+    font-family: 'Oswald', sans-serif;
+    /*overflow: hidden;*/
+}
+
+.index {
+    width: 100vw;
+    height: 100vh;
+}
+
+.masthead {
+    color: white;
+    min-height: 30rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background: url('/img/viveres.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.masthead h1 {
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*table.dataTable thead {
+    background-color:#eaebb6;
+    color: #1b1713;
+    font-size:18px;
+    font-weight: bold;
+  }*/
+
+  .app-sidebar__user-avatar{
+    width: 48px;
+    background: gray;
+    padding: 6px;
+  }
+
+  .app-content {
+    background-color:#d1e7e0;
+  }
+
+ /* table.dataTable tbody td {
+    height: 10px;
+    padding: 4px 10px; /* e.g. change 8x to 4px here */
+ /* }*/
+  
+  @media (min-width: 992px) {
+    .masthead {
+      height: 100vh;
+    }
+    .masthead h1 {
+      font-size: 5.5rem;
+    }
+  }
+
+  .NotItemOne option:first-child{
+    display: none;
+  }
+
+  .prevPhoto {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    height: 150px;
+    border: 1px solid #CCC;
+    position: relative;
+    cursor: pointer;
+    margin: auto;
+}
+.prevPhoto label{
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+.prevPhoto img{
+	width: 100%;
+	height: 100%;
+}
+.upimg, .notBlock{
+	display: none !important;
+}
+.errorArchivo{
+	font-size: 16px;
+	font-family: arial;
+	color: #cc0000;
+	text-align: center;
+	font-weight: bold; 
+	margin-top: 10px;
+}
+.delPhoto{
+	color: #FFF;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background: red;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	z-index: 10;
+}
+#tbl_list_productos img{
+	width: 50px;
+}
+.imgProductoDelete{
+	width: 175px;
+} 
+
+/*****************lista productos**********/
+
+.img_producto img{
+	width: 65px;
+	height: auto;
+	margin: auto;
+}
+.imgProductoDelete{
+	width: 175px;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.precio {
+  margin-bottom: 0px;
+  font-size: 11px;
+}
+
+.newPadding {
+  padding-left: 3px;
+  padding-right: 3px;
+  
+} 
+
+.bg-grd {
+  background-image: linear-gradient(to right,rgb(169, 221, 251),rgb(129, 126, 126));
+}
+
+
+
+  
+  

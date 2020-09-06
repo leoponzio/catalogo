@@ -1,0 +1,79 @@
+<!-- Modal -->
+<div class="modal fade" id="modalFormDpto" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center text-white" id="modalHeadDpto">
+        <h2 class="modal-title">Nuevo Departamento</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tile">
+
+          <div class="tile-body">
+            <form action="/dpto/setDpto" id="formDpto" method="POST">
+              <input type="hidden" id="idDpto" name="idDpto" value="">
+              <div class="form-group">
+                <label for="" class="col-form-label">Codigo</label>
+                <input type="text" id="cod" name="cod" class="form-control" placeholder="Codigo" required >
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Descripcion</label>
+                <input type="text" id="des" name="des" class="form-control" placeholder="Descripcion" required>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-success btn-block"  type="submit"><i class="far fa-save"></i><span id="btnText">
+                    Guardar</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal fin -->
+
+<div class="app-title">
+  <div>
+    <h1><i class="fas fa-boxes fa-lg"></i>
+      <button class="btn btn-primary" id="addDpto" type="button"><i class="fa fa-plus-circle"></i>
+        Nuevo</button>
+    </h1>
+
+  </div>
+  <ul class="app-breadcrumb breadcrumb">
+    <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+    <li class="breadcrumb-item"><a href="/dpto">Departamentos</a></li>
+  </ul>
+</div>
+<div class="container p-4">
+  <div class="col-md-12">
+    <div class="tile">
+    <div class="tile-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered" id="tableDpto">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Descripcion</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+          <tfooter>
+
+          </tfooter>
+        </table>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>

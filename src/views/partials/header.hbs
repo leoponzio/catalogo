@@ -1,0 +1,24 @@
+<body class="app sidebar-mini">
+<header class="app-header"><a class="app-header__logo" href="#">Catalogo Virtual</a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle pt-2" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"><i class="fas fa-bars fa-2x"></i></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        
+        <!-- User Menu-->
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            {{#if user}}  
+              {{#isMaster user.u_nombre "Master"}}
+                 <li><a class="dropdown-item" href="#" onclick="openModalReg()"><i class="fas fa-user-plus"></i> Nueno Usuario</a></li>
+                 <li><a class="dropdown-item" href="/profile"><i class="fa fa-user fa-lg"></i> Perfil</a></li>
+              {{else}}
+                 <li><a class="dropdown-item" href="#" onclick="openModalPass()"><i class="fa fa-cog"></i> Cambiar Contraseña</a></li>
+                 <li><a class="dropdown-item" href="/profile"><i class="fa fa-user fa-lg"></i> Perfil</a></li>
+              {{/isMaster}}   
+            {{else}}
+              <li><a class="dropdown-item" href="#" onclick="openModalLog()"><i class="fas fa-sign-in-alt"></i> Entrar</a></li>
+            {{/if}}
+            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>

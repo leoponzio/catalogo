@@ -1,0 +1,40 @@
+{
+  "decimal":        ".",
+  "emptyTable":     "No hay datos para mostrar",
+  "info":           "Mostrando del _START_ al _END_ (_TOTAL_ total)",
+  "infoEmpty":      "Sin Resultados",
+  "infoFiltered":   "(filtrado de todas las _MAX_ Registros)",
+  "infoPostFix":    "",
+  "thousands":      "'",
+  "lengthMenu":     "Mostrar _MENU_ entradas",
+  "loadingRecords": "Cargando...",
+  "processing":     "Procesando...",
+  "search":         "Buscar:",
+  "zeroRecords":    "No hay resultados",
+  "paginate": {
+    "first":      "Primero",
+    "last":       "Último",
+    "next":       "Siguiente",
+    "previous":   "Anterior"
+
+  },
+
+  "aria": {
+    "sortAscending":  ": ordenar de manera Ascendente",
+    "sortDescending": ": ordenar de manera Descendente "
+  },
+  "buttons": {
+    "create": "Nuevo",
+    "edit": "Cambiar",
+    "remove": "Borrar",
+    "copy": "Copiar",
+    "csv": "fichero CSV",
+    "excel": "tabla Excel",
+    "pdf": "documento PDF",
+    "print": "Imprimir",
+    "colvis": "Visibilidad columnas",
+    "collection": "Colección",
+    "upload": "Seleccione fichero...."
+}
+
+}

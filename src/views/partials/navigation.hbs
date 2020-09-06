@@ -1,0 +1,83 @@
+ <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/img/Ulogom.png" alt="User Image">
+        <div>
+          <p class="app-sidebar__user-designation">{{user.u_usuario}}</p>
+          <p class="app-sidebar__user-name">{{user.u_nombre}}</p>
+        </div>
+      </div>
+      {{#if user}}
+      <ul class="app-menu">
+        <!-- <li class="treeview">
+          <a class="app-menu__item" href="#" data-toggle="treeview">
+            <i class="app-menu__icon fas fa-boxes"></i>
+            <span class="app-menu__label">Departamento</span>
+            <i class="treeview-indicator fa fa-angle-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="/dpto"><i class="icon far fa-circle"></i> Departamentos</a></li>
+            <li><a class="treeview-item" href="/dpto/add"><i class="icon far fa-circle"></i> Crear Departamento</a></li>
+          </ul>
+        </li> -->
+        <li>
+          <a class="app-menu__item" href="/profile">
+            <i class="app-menu__icon fas fa-tachometer-alt"></i>
+            <span class="app-menu__label">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a class="app-menu__item" href="/dpto">
+            <i class="app-menu__icon fas fa-boxes"></i>
+            <span class="app-menu__label">Departamentos</span>
+          </a>
+        </li>
+        <li>
+          <a class="app-menu__item" href="/productos">
+            <i class="app-menu__icon fas fa-th"></i>
+            <span class="app-menu__label">Productos</span>
+          </a>
+        </li>
+        <li>
+          <a class="app-menu__item" href="/catalogo" onclick="openModalWait()">
+            <i class="app-menu__icon fas fa-file-alt"></i>
+            <span class="app-menu__label">Catalogo</span>
+          </a>
+        </li>
+        {{#isMaster user.u_nombre "Master"}}
+         <li>
+          <a class="app-menu__item" id="register" href="#"  onclick="openModalReg()">
+            <i class="app-menu__icon fas fa-user-plus"></i>
+            <span class="app-menu__label">Nuevo Usuario</span>
+          </a>
+        </li>
+        {{else}}
+        <li>
+          <a class="app-menu__item" href="#" id="pass" onclick="openModalPass()">
+            <i class="app-menu__icon fa fa-cog"></i>
+            <span class="app-menu__label">Cambiar Contraseña</span>
+          </a>
+        </li>
+        {{/isMaster}}
+        <li>
+          <a class="app-menu__item" href="/logout">
+            <i class="app-menu__icon fas fa-sign-out-alt"></i>
+            <span class="app-menu__label">Salir</span>
+          </a>
+        </li>
+        {{else}}
+          <li>
+          <a class="app-menu__item" id="loggin" href="#" onclick="openModalLog()">
+            <i class="app-menu__icon fas fa-sign-in-alt"></i>
+            <span class="app-menu__label">Entrar</span>
+          </a>
+        </li>
+        {{/if}}
+      </ul>
+    </aside>
+
+
+
+
+
+

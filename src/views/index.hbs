@@ -1,0 +1,48 @@
+<!-- Modal -->
+<div class="modal fade" id="modalFormLog" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center text-white bg-primary" id="modalHeadLog">
+        <h2 class="modal-title">Nuevo Departamento</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tile">
+          <div class="tile-body">
+            <form action="/signin" method="POST" name="formLog" id="formLog">
+              <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Usuario" class="form-control" autofocus>
+              </div>
+              <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Clave" class="form-control">
+              </div>
+              <button class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i>
+                Entrar
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal fin -->
+
+
+<main class="index">
+  <header class="masthead d-flex">
+    <div class="container text-center my-auto bg-dark w-50">
+      <h1 class="mb-1">Catalogo</h1>
+      <h3 class="mb-5">
+        <em>Catalogo de Productos</em>
+      </h3>
+      <a class="btn btn-primary btn-lg" href="#" onclick="openModalLog()">
+        Emprecemos
+      </a>
+    </div>
+    <div class="overlay"></div>
+  </header>
+</main>
