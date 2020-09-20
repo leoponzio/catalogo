@@ -153,6 +153,13 @@ body {
   background-image: linear-gradient(to right,rgb(169, 221, 251),rgb(129, 126, 126));
 }
 
+.bg-header {
+  background: #11998e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0a9488,#0575e6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0a9488, #0575e6);
+}
+
+
 
 
   

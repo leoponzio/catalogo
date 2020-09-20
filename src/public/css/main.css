@@ -14958,7 +14958,7 @@ be a descendant of the grid when it is being dragged.
             flex: 0 0 auto;
     display: block;
     width: 230px;
-    background-color: #007d71;
+    background-color: #11998e;
   }
 }
 
@@ -14985,10 +14985,10 @@ be a descendant of the grid when it is being dragged.
   }
 }
 
-.app-sidebar__toggle:before {
-  /*content: "\f0c9";
-  font-size: 21px;*/
-}
+/*.app-sidebar__toggle:before {
+  content: "\f0c9";
+  font-size: 21px;
+}*/
 
 .app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
   color: #fff;
