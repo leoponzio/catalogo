@@ -387,7 +387,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     var formData = new FormData(document.getElementById('formPass'));
-
+   
     $.ajax({
       url: "pass",
       type: "PUT",
@@ -435,6 +435,97 @@ $(document).ready(function () {
     });
     $('#modalFormReg').modal('hide');
   });
+
+//////////// reset password
+  //abrir form reset password
+  $('#rst1').click(function () {
+
+    $(".modal-title").text("Olvido su Clave");
+    $("#formForgot").trigger("reset");
+    $('#modalFormLog').modal('hide');
+    $('#modalFormForgot').modal('show');
+
+
+  });
+
+  //abrir form login desde reset 
+  $('#rst2').click(function () {
+
+    $(".modal-title").text("Ingresar al Sistema");
+    $("#formLog").trigger("reset");
+    $('#modalFormForgot').modal('hide');
+    $('#modalFormLog').modal('show');
+
+  });
+
+  
+   //forgot password
+   $('#formForgot').submit(function (e) {
+    e.preventDefault();
+
+    var formData = new FormData(document.getElementById('formForgot'));
+    var token =$('#hidden').val();
+    $.ajax({
+      url: "/forgotpass",
+      type: "POST",
+      datatype: "json",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (res) {
+        console.log(res);
+        var objData = JSON.parse(res);
+
+        if (objData.status) {
+         
+          swal("Enviado!", objData.msg, "success").then((value) => {
+         
+            window.location.href='/';
+          });
+         
+        } else {
+          swal("Error!", objData.msg, "error")
+        }
+      }
+    });
+    
+  });
+
+   //reset password
+   $('#formReset').submit(function (e) {
+    e.preventDefault();
+
+    var formData = new FormData(document.getElementById('formReset'));
+    var token =$('#hidden').val();
+    $.ajax({
+      url: "/resetpassword/"+token,
+      type: "POST",
+      datatype: "json",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (res) {
+        console.log(res);
+        var objData = JSON.parse(res);
+
+        if (objData.status) {
+         
+          swal("Actualizado!", objData.msg, "success").then((value) => {
+         
+            window.location.href='/';
+          });
+         
+        } else {
+          swal("Error!", objData.msg, "error").then((value) => {
+         
+            window.location.href='/';
+          });
+        }
+      }
+    });
+    
+  });
+
 
 
 });

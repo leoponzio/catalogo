@@ -5,13 +5,15 @@ const pool = require('../lib/database');
 const { isLoggedIn } = require('../lib/auth');
 
 var fs = require('fs');
-var pdf = require('dynamic-html-pdf');
+//var pdf = require('dynamic-html-pdf');
+const puppeteer = require('puppeteer');
+
+
+
+
 var html = fs.readFileSync('./src/public/template.hbs', 'utf8');
-
 const slash = process.platform === 'win32' ? '\\' : '/';
-
 var aux = true;
-
 
 var imgPath = "file:---" + process.cwd() + "-src-public-img-uploads-"; //"cssgPat1h = imgPath.replace(/-/g, slash);
 imgPath = imgPath.replace(/-/g, slash);
@@ -46,10 +48,40 @@ router.get('/', isLoggedIn, async (req, res) => {
         prod : rows,
         path : "file:///F:/nodejs/programas/catalogo/src/public"
     };
-   
-   var name = new Date().getTime();
+    
+    var name = new Date().getTime();
+    
+    //var pdfPath = path.join('pdf', `${data.name}-${milis}.pdf`);
 
-    var document = {
+	var options = {
+		width: '1230px',
+		headerTemplate: "<div style='width: 196mm;  height: 25mm;' class='text-center border border-primary rounded'><H2 class='text-dark'>"+info.empresa.nombre+"</H2><H5 class='text-dark'>"+info.empresa.rif+"</H5><H5 class='text-danger'>Correo: <span class='text-muted'>"+info.empresa.correo+ "</span>- Tlf: <span class='text-muted'>"+info.empresa.tlf+"</span></H5></div>" ,
+		footerTemplate: "<div style='width: 196mm;  height: 5mm; margin-top: 5px' class='text-center bg-dark text-light'><span>{{page}}</span>/<span>{{pages}}</span></div>",
+        displayHeaderFooter: true,
+        
+		margin: {
+			top: "10px",
+			bottom: "10px"
+		},
+		printBackground: true,
+		path:"./" + name + ".pdf" 
+    }
+    
+    const browser = await puppeteer.launch({
+		args: ['--no-sandbox'],
+		headless: true
+	});
+	var page = await browser.newPage();
+	
+	await page.goto(`data:text/html;charset=UTF-8,${html}`, {
+		waitUntil: 'networkidle0'
+    });
+    
+    await page.pdf(options);
+
+    await browser.close();
+  
+    /*var document = {
         type: 'file',     // 'file' or 'buffer'
         template: html,
         context: {
@@ -93,7 +125,7 @@ router.get('/', isLoggedIn, async (req, res) => {
         })
         .catch(error => {
             console.error(error)
-        });
+        });*/
 });
 
 module.exports = router;

@@ -1,0 +1,33 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            <div class="card">
+                <div class="card-head text-center text-white bg-info">
+                    <h1>Reset Password</h1>
+                </div>
+                <div class="card-body">
+                    <form id="formReset" name="formReset" method="POST">
+                        
+                        <!--div class="form-group">
+                            <label for="" class="col-form-label">Codigo</label>
+                        </div-->
+                        <input type="hidden" id="hidden" value="{{info.token}}">   
+                        <div class="form-group">
+                            <input type="password" id="password" name="password" placeholder="Clave" class="form-control">
+                        </div>  
+
+                        <div class="form-group">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Clave" class="form-control">
+                        </div> 
+                        
+                        <div class="form-group">
+                             <button class="btn btn-success btn-block" type="submit"><i class="fa fa-unlock fa-lg fa-fw"></i>RESET</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
