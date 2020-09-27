@@ -1,5 +1,10 @@
 var crypto = require('crypto');
 
+const slash = process.platform === 'win32' ? '\\' : '/';
+
+var imgPath = "file:---" + process.cwd() + "-src-public-img-uploads-"; //"cssgPat1h = imgPath.replace(/-/g, slash);
+imgPath = imgPath.replace(/-/g, slash);
+
 module.exports = {
 
     database: {
@@ -18,7 +23,14 @@ module.exports = {
 
     ids:{
         secret: crypto.createHash('md5').update('fe1a1915a379f3b-e5394b1506868106675-64d14794932-').digest("hex"),
-        session:crypto.createHash('md5').update('catalogomysql').digest("hex")
+        session:crypto.createHash('md5').update('catalogomysql').digest("hex"),
+        port:3500
+    },
+
+    path:{
+        slash:slash,
+        PublicPath:'file:///F:/nodejs/programas/catalogo/src/public',
+        imgPath:imgPath
     }
 
     

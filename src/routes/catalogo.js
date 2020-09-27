@@ -3,23 +3,34 @@ const router = express.Router();
 
 const pool = require('../lib/database');
 const { isLoggedIn } = require('../lib/auth');
+const { path } = require('../lib/config');
 
 var fs = require('fs');
 var pdf = require('dynamic-html-pdf');
 var html = fs.readFileSync('./src/public/template.hbs', 'utf8');
 
-const slash = process.platform === 'win32' ? '\\' : '/';
+/*const slash = process.platform === 'win32' ? '\\' : '/';
 
 var imgPath = "file:---" + process.cwd() + "-src-public-img-uploads-"; //"cssgPat1h = imgPath.replace(/-/g, slash);
-imgPath = imgPath.replace(/-/g, slash);
+imgPath = imgPath.replace(/-/g, slash);*/
 
 router.get('/:id', isLoggedIn, async (req, res) => {
 
     const { id } = req.params;
     const emp  = await pool.query('SELECT * FROM empresa');
-    const rows = await pool.query('SELECT productos.*,precios.* FROM productos,precios WHERE precios.p_cod=productos.cod and productos.activo=? and productos.dpto=?', [1,id]);
-    console.log(i);
+
     var aux = true;
+    var rows;
+
+    if (id == 'all'){
+       
+        rows = await pool.query('SELECT productos.*,precios.* FROM productos,precios WHERE precios.p_cod=productos.cod and productos.activo=?', [1]);
+    }else {
+       
+        rows = await pool.query('SELECT productos.*,precios.* FROM productos,precios WHERE precios.p_cod=productos.cod and productos.activo=? and productos.dpto=?', [1,id]);
+    }
+
+  
     for (i = 0; i < rows.length; i++) {
         
         aux = !aux;
@@ -27,10 +38,8 @@ router.get('/:id', isLoggedIn, async (req, res) => {
         rows[i].preciod2 = rows[i].preciod2.toFixed(2);
         rows[i].precioy1 = rows[i].precioy1.toFixed(2);
         rows[i].precioy2 = rows[i].precioy2.toFixed(2);
-        rows[i].img = imgPath + rows[i].img;
+        rows[i].img = path.imgPath + rows[i].img;
         rows[i].xx = aux;
-        
-            
     };
 
     var info = {
@@ -42,7 +51,7 @@ router.get('/:id', isLoggedIn, async (req, res) => {
         },
 
         prod : rows,
-        path : "file:///F:/nodejs/programas/catalogo/src/public"
+        path : path.PublicPath
     };
    
    var name = new Date().getTime();
@@ -75,7 +84,7 @@ router.get('/:id', isLoggedIn, async (req, res) => {
         .then(resp => {
             console.log(resp);
 
-            fs.readFile(process.cwd() + slash + name + ".pdf", (err, data) => {
+            fs.readFile(process.cwd() + path.slash + name + ".pdf", (err, data) => {
 
                 if (err) {
                     console.log(err);
@@ -84,7 +93,7 @@ router.get('/:id', isLoggedIn, async (req, res) => {
                 res.type("application/pdf");
                 res.send(data);
             });
-            fs.unlink(process.cwd() + slash + name + ".pdf", (err) => {
+            fs.unlink(process.cwd() + path.slash + name + ".pdf", (err) => {
                 if (err) return console.log(err);
                 console.log('file deleted successfully');
             });

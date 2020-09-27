@@ -13,7 +13,7 @@ router.get('/alldpto', isLoggedIn, async (req, res) => {
 
     for (i = 0; i < dpto.length; i++) {
 
-        dpto[i].option = "<div Class='text-center'><a class='btn btn-primary btn-sm fnEditDp' href='#' rl='" + dpto[i].dp_id + "'><i Class='fas fa-pencil-alt'></i></a><a class='btn btn-danger btn-sm fnDelDp' href='#' rl='" + dpto[i].dp_id + "'><i Class='fas fa-trash-alt'></i></a></div>"
+        dpto[i].option = "<div Class='text-center'><a class='btn btn-primary btn-sm rounded-circle fnEditDp' href='#' rl='" + dpto[i].dp_id + "'><i Class='fas fa-pencil-alt'></i></a><a class='btn btn-danger btn-sm rounded-circle fnDelDp' href='#' rl='" + dpto[i].dp_id + "'><i Class='fas fa-trash-alt'></i></a></div>"
     };
     res.send(JSON.stringify(dpto));
 });
@@ -77,29 +77,6 @@ router.get('/getDpto/:id', async (req, res) => {
     res.send(JSON.stringify(result));
     //res.render('dpto/edit', { dpto: rows[0] });
 });
-
-/*router.put('/edit/:id', async (req, res) => {
-    const { id } = req.params;
-    const form = req.body;
-    var rows ;
-    var result = {};
-    const UpdDpto = {
-        dp_des: form.des,
-    };
-   
-    rows = await pool.query('UPDATE departamentos set ? WHERE dp_id=?', [UpdDpto, id]);
-   
-    if (rows.affectedRows == 1) {
-
-        result = {  status: true,
-                    msg: 'Departamento Actualizado Correctamente' }
-    } else {
-
-        result = { status: false,
-                       msg: 'Error al Actualizar Departamento'}
-    }
-    res.send(JSON.stringify(result));
-});*/
 
 
 router.delete('/delDpto/:id', async (req, res) => {

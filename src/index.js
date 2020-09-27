@@ -21,7 +21,7 @@ app.use(fileUpload({
 }));
 
 // Settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || ids.port);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',

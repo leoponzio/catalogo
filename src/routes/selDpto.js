@@ -13,8 +13,9 @@ router.get('/selDpto', isLoggedIn, async (req, res) => {
 
     for (i = 0; i < dpto.length; i++) {
 
-        dpto[i].option = "<div Class='text-center'><a class='btn btn-primary btn-sm' href='catalogo/" + dpto[i].dp_cod + "' rl='" + dpto[i].dp_cod + "'><i class='far fa-check-square'></i></a></div>"
+        dpto[i].option = "<div Class='text-center'><a class='btn btn-info btn-sm rounded-circle' onclick='openModalWait()' href='catalogo/" + dpto[i].dp_cod + "' rl='" + dpto[i].dp_cod + "'><i class='far fa-check-square'></i></a></div>"
     };
+    //console.log(dpto);
     res.send(JSON.stringify(dpto));
 });
 
