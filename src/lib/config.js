@@ -17,7 +17,9 @@ module.exports = {
     },
 
     ids:{
-        secret: crypto.createHash('md5').update('fe1a1915a379f3b-e5394b1506868106675-64d14794932-').digest("hex")
+        secret: crypto.createHash('md5').update('fe1a1915a379f3b-e5394b1506868106675-64d14794932-').digest("hex"),
+        session:crypto.createHash('md5').update('catalogomysql').digest("hex")
     }
 
+    
 };

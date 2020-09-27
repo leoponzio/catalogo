@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
 
-const { database } = require('./lib/db');
+const { database,ids } = require('./lib/config');
 
 // Intializations
 const app = express();
@@ -21,7 +21,7 @@ app.use(fileUpload({
 }));
 
 // Settings
-app.set('port', process.env.PORT || 3500);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
@@ -38,9 +38,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(session({
-  secret: 'catalogonodemysql',
+  
+  secret: ids.session,
   resave: false,
   saveUninitialized: false,
+  expires: new Date(Date.now() + (30 * 1000)),
   store: new MySQLStore(database)
 }));
 app.use(flash());

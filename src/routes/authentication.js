@@ -8,7 +8,7 @@ const passport = require('passport');
 const { isLoggedIn, inNotLoggedIn } = require('../lib/auth');
 const pool = require('../lib/database');
 const helpers = require('../lib/helpers');
-const { email,ids } = require('../lib/db');
+const { email,ids } = require('../lib/config');
 const { info } = require('console');
 const SMTPTransport = require('nodemailer/lib/smtp-transport');
 const { getMaxListeners } = require('process');
@@ -160,7 +160,7 @@ router.post('/forgotpass', inNotLoggedIn, async (req,res) =>{
           var payload = {
             id: rows[0].u_id,        // User ID from database
             email: emailAddress,
-            time: f1.getTime()+120000
+            time: f1.getTime()+(1000*60*60)
 
           };
          
