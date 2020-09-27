@@ -62,6 +62,7 @@ app.use(require('./routes/index'));
 app.use(require('./routes/authentication'));
 app.use('/productos', require('./routes/productos'));
 app.use('/dpto', require('./routes/dpto'));
+app.use('/selDpto', require('./routes/selDpto'));
 app.use('/catalogo', require('./routes/catalogo'));
 
 // Public

@@ -72,7 +72,7 @@ $('.delPhoto').click(function () {
 ///////////////////// datatables
 $(document).ready(function () {
 
-  tblProd = $('#tableProd').DataTable({
+  $('#tableProd').DataTable({
     aProcessing: true,
     aServerSide: true,
 
@@ -103,7 +103,7 @@ $(document).ready(function () {
   });
 
 
-  tblDpto = $('#tableDpto').DataTable({
+  $('#tableDpto').DataTable({
     aProcessing: true,
     aServerSide: true,
 
@@ -113,6 +113,30 @@ $(document).ready(function () {
 
     ajax: {
       "url": " /dpto/alldpto",
+      "method": "GET",
+      "dataSrc": ""
+    },
+
+    columns: [
+      { "data": "dp_cod" },
+      { "data": "dp_des" },
+      { "data": "option" }
+    ],
+    resonsieve: "true",
+    bDestroy: true,
+    iDisplayLength: 10
+  });
+
+  $('#tableSelDpto').DataTable({
+    aProcessing: true,
+    aServerSide: true,
+
+    language: {
+      url: "../spanish.json"
+    },
+
+    ajax: {
+      "url": " /selDpto/selDpto",
       "method": "GET",
       "dataSrc": ""
     },
@@ -175,6 +199,7 @@ $(document).ready(function () {
       }
     });
   });
+
 
   //  crear/editar dpto
   $('#formDpto').submit(function (e) {
@@ -244,6 +269,7 @@ $(document).ready(function () {
 
     });
   });
+
 
   ///////////////////////////////// productos
 

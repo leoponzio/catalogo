@@ -10,18 +10,16 @@ var html = fs.readFileSync('./src/public/template.hbs', 'utf8');
 
 const slash = process.platform === 'win32' ? '\\' : '/';
 
-var aux = true;
-
-
 var imgPath = "file:---" + process.cwd() + "-src-public-img-uploads-"; //"cssgPat1h = imgPath.replace(/-/g, slash);
 imgPath = imgPath.replace(/-/g, slash);
 
-router.get('/', isLoggedIn, async (req, res) => {
+router.get('/:id', isLoggedIn, async (req, res) => {
+
+    const { id } = req.params;
     const emp  = await pool.query('SELECT * FROM empresa');
-    const rows = await pool.query('SELECT productos.*,precios.* FROM productos,precios WHERE precios.p_cod=productos.cod and productos.activo=?', [1]);
-   
-    var aux3= 1;
-   
+    const rows = await pool.query('SELECT productos.*,precios.* FROM productos,precios WHERE precios.p_cod=productos.cod and productos.activo=? and productos.dpto=?', [1,id]);
+    console.log(i);
+    var aux = true;
     for (i = 0; i < rows.length; i++) {
         
         aux = !aux;
