@@ -29,7 +29,7 @@ module.exports = {
 
     path:{
         slash:slash,
-        PublicPath:'file:///F:/nodejs/programas/catalogo/src/public',
+        PublicPath:'file:///'+process.cwd()+'/src/public',
         imgPath:imgPath
     }
 
